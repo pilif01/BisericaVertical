@@ -1,0 +1,234 @@
+/* =========================
+   styles.css – full file
+   ========================= */
+:root{
+    --bg:#000;
+    --fg:#fff;
+    --muted:#b7b7b7;
+    --accent:#e6e6e6;
+    --pad:clamp(16px, 2vw, 28px);
+
+    /* Header/nav */
+    --nav-h: 128px;
+    --brand-reserve-left: clamp(300px, 32vw, 520px);
+    --united-yellow: #EAFB2A;
+    --united-logo-size: 28px;
+
+    /* Video styling */
+    --video-dim: .55;            /* întunecare peste video (0..1) */
+    --box-bg: rgba(0,0,0,.36);   /* fundal box mat */
+    --box-blur: 6px;             /* blur box */
+
+    /* Timings & easings */
+    --t-appear: 800ms;
+    --t-reveal: 1100ms;
+    --t-move: 1200ms;
+    --ease-out: cubic-bezier(.22,.61,.36,1);
+    --ease-inout: cubic-bezier(.65,0,.35,1);
+
+    /* Brand scale în header */
+    --brand-scale-final: 0.86;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+    color:var(--fg);
+    background:var(--bg);
+    line-height:1.45;
+}
+
+/* ====== INTRO generic (folosit de index + tineret) ====== */
+.intro{
+    position:fixed; inset:0; display:grid; place-items:center;
+    background:var(--bg); z-index:1000;
+    transition: background var(--t-move) var(--ease-out);
+}
+.intro .brand{
+    position:fixed; top:50%; left:50%;
+    transform: translate(-50%,-50%) scale(1);
+    transform-origin: left top;
+    display:flex; align-items:center; gap: clamp(10px, 2vw, 16px);
+    opacity:0; z-index:1100;
+    transition:
+            top var(--t-move) var(--ease-inout),
+            left var(--t-move) var(--ease-inout),
+            transform var(--t-move) var(--ease-inout),
+            opacity var(--t-appear) var(--ease-out);
+}
+.intro.stage1 .brand{ opacity:1; }
+.intro.stage2 .brand{ transform: translate(calc(-50% - 20px), -50%) scale(1); }
+
+.intro .logo{
+    display:block; height: clamp(58px, 8vw, 96px); width:auto;
+    background:#0a0a0a; padding:12px 14px; border-radius:14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.intro .text{
+    margin-left: clamp(-16px, -1.2vw, -8px);
+    -webkit-clip-path: inset(0 100% 0 0); clip-path: inset(0 100% 0 0);
+    transition: -webkit-clip-path var(--t-reveal) var(--ease-out), clip-path var(--t-reveal) var(--ease-out);
+}
+.intro.stage2 .text{ -webkit-clip-path: inset(0 0 0 0); clip-path: inset(0 0 0 0); }
+
+.intro .line{
+    margin:0; white-space:nowrap; transform: translateX(-16px); opacity:0;
+    transition: transform 900ms var(--ease-out), opacity 700ms var(--ease-out),
+    font-size var(--t-move) var(--ease-inout), letter-spacing var(--t-move) var(--ease-inout);
+}
+#intro .line1{ font-size: clamp(26px, 4.6vw, 54px); font-weight:800; letter-spacing:.2px; }
+#intro .line2{ font-size: clamp(16px, 2.4vw, 26px); color:var(--muted); font-weight:500; margin-top: clamp(2px, .4vw, 6px); }
+#intro .line{ transform:none; opacity:1; } /* pe landing se văd ambele linii */
+
+#intro-youth .line1{ font-size: clamp(26px, 5vw, 58px); font-weight:700; }
+#intro-youth .line1 strong{ font-weight:900; }
+#intro-youth .line{ transform:none; opacity:1; } /* o singură linie */
+
+.intro.toTop .brand{ top: var(--pad); left: var(--pad); transform: translate(0,0) scale(var(--brand-scale-final)); }
+#intro.toTop .line1{ font-size: clamp(20px, 3.2vw, 36px); letter-spacing:.1px; }
+#intro.toTop .line2{ font-size: clamp(14px, 1.9vw, 22px); }
+#intro-youth.toTop .line1{ font-size: clamp(20px, 3.6vw, 38px); }
+
+.intro.final{ background:transparent; pointer-events:none; }
+
+/* ====== Brand static (pagini interne) ====== */
+.brand-static{
+    position:fixed; top: var(--pad); left: var(--pad); z-index:1100;
+    display:flex; align-items:center; gap:12px; transform: scale(var(--brand-scale-final));
+    transform-origin: left top;
+}
+.brand-static .logo{
+    display:block; height: clamp(58px, 8vw, 96px); width:auto;
+    background:#0a0a0a; padding:12px 14px; border-radius:14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.brand-static .tt{ display:flex; flex-direction:column; }
+.brand-static .tt strong{ font-weight:800; font-size: clamp(20px, 3.2vw, 36px); }
+.brand-static .tt span{ color:var(--muted); font-size: clamp(14px, 1.9vw, 22px); }
+
+/* ====== NAV ====== */
+.site-nav{
+    position:fixed; top: calc(var(--nav-h) * -1); left:0; right:0; height: var(--nav-h);
+    display:flex; align-items:center; justify-content:flex-end;
+    padding: 0 calc(var(--pad) + 8px);
+    padding-left: calc(var(--brand-reserve-left) + var(--pad));
+    z-index:900; opacity:0;
+    transition: top var(--t-move) var(--ease-inout), opacity 400ms var(--ease-out);
+    background: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,.85));
+    border-bottom:1px solid #0e0e0e; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.site-nav.show{ top:0; opacity:1; }
+.site-nav nav{ height:100%; display:flex; align-items:center; }
+.site-nav nav ul{ margin:0; padding:0; list-style:none; display:flex; align-items:center; gap: clamp(16px, 2.5vw, 28px); }
+.site-nav a{
+    color:var(--fg); text-decoration:none; font-weight:700;
+    font-size: clamp(18px, 1.6vw, 22px); line-height:1; padding:12px 10px; opacity:.95;
+}
+.site-nav a:hover{ opacity:1; }
+.site-nav a.active, .site-nav .united-btn.active{ outline:2px solid #222; border-radius:10px; }
+
+/* UNITED button */
+.site-nav .united-btn{
+    display:flex; align-items:center; gap:12px;
+    padding:10px 14px; border:1px solid #1a1a1a; border-radius:12px; background:#0b0b0b;
+    transition: transform 200ms var(--ease-out), background 200ms ease, border-color 200ms ease;
+}
+.site-nav .united-btn img{ height: var(--united-logo-size); width:auto; display:block; filter: drop-shadow(0 0 0.5px rgba(0,0,0,.6)); }
+.site-nav .united-btn span{ color: var(--united-yellow); font-weight:800; letter-spacing:.2px; }
+.site-nav .united-btn:hover{ transform: translateY(-1px); background:#0e0e0e; border-color:#222; }
+
+/* ====== VIDEO BACKGROUND — Landing (full-screen, fără scroll) ====== */
+.video-wrap{ position:fixed; inset:0; z-index:-1; overflow:hidden; }
+.video-bg{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    min-width:100%; min-height:100%; width:auto; height:auto; object-fit:cover;
+    filter: saturate(1.05) contrast(1.05) brightness(.88);
+}
+.video-overlay{
+    position:absolute; inset:0;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.30) 40%, rgba(0,0,0,.55)),
+            rgba(0,0,0,var(--video-dim));
+}
+
+/* ====== LANDING hero ====== */
+#content{ opacity:0; transform: translateY(12px);
+    transition: opacity var(--t-move) var(--ease-out), transform var(--t-move) var(--ease-out);
+    padding-top: var(--nav-h);
+}
+#content.show{ opacity:1; transform:none; }
+body.landing{ overflow:hidden; } /* fără scroll */
+
+.landing-hero{
+    height: calc(100dvh - var(--nav-h));
+    display:grid; place-items:center; padding: 0 var(--pad);
+}
+.landing-hero .text-box{
+    display:grid; justify-items:center; align-content:center;
+    gap: 8px; text-align:center;
+    padding: 16px 22px; max-width: min(92vw, 900px);
+    background: var(--box-bg);
+    backdrop-filter: blur(var(--box-blur)) saturate(1.05);
+    -webkit-backdrop-filter: blur(var(--box-blur)) saturate(1.05);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.35);
+}
+.landing-hero h1{ margin:0; line-height:1.1; font-size: clamp(30px, 5.2vw, 64px); }
+.landing-hero p{ margin:0; line-height:1.34; font-size: clamp(15px, 2vw, 20px); color: var(--accent); max-width: 65ch; }
+.cta{ display:inline-block; margin-top: 6px; padding:12px 18px; border:1px solid #444; border-radius:12px; color:var(--fg); text-decoration:none; font-weight:800; }
+
+/* ====== TINERET hero (video doar în prima secțiune; pagina scrollable) ====== */
+body.youth{ overflow:auto; } /* permite scroll */
+.youth-hero{
+    position:relative; height: calc(100dvh - var(--nav-h));
+    display:grid; place-items:center; padding: 0 var(--pad); overflow:hidden;
+}
+.youth-hero .section-video{
+    position:absolute; inset:0; z-index:-1; overflow:hidden;
+}
+.youth-hero video{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    min-width:100%; min-height:100%; object-fit:cover;
+    filter: saturate(1.05) contrast(1.05) brightness(.9);
+}
+.youth-hero .video-overlay{ position:absolute; inset:0; background:
+        linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,.25) 40%, rgba(0,0,0,.55)),
+        rgba(0,0,0,.35);
+}
+.youth-hero .hero-title{
+    text-align:center; display:grid; gap:8px; padding: 12px 20px;
+    background: var(--box-bg);
+    backdrop-filter: blur(var(--box-blur)); -webkit-backdrop-filter: blur(var(--box-blur));
+    border: 1px solid rgba(255,255,255,.06); border-radius:14px;
+}
+.youth-hero h1{ margin:0; font-size: clamp(28px, 5vw, 60px); }
+.youth-hero h1 strong{ font-weight:900; }
+.youth-hero p{ margin:0; color:var(--accent); }
+
+/* ====== Pagini interne (layout) ====== */
+.page{ padding: calc(var(--nav-h) + var(--pad)) var(--pad) var(--pad); max-width: 1100px; margin:0 auto; }
+.section{ padding: clamp(28px, 5vw, 64px) var(--pad); border-top:1px solid #111; }
+.page h1, .page h2{ margin:0 0 16px 0; }
+.footer{ padding: 40px var(--pad); color:#8a8a8a; text-align:center; border-top:1px solid #111; }
+
+/* ====== Responsive ====== */
+@media (max-width: 1200px){
+    :root{ --brand-scale-final: 0.84; --nav-h: 120px; --united-logo-size: 26px; }
+}
+@media (max-width: 900px){
+    :root{ --brand-scale-final: 0.80; --nav-h: 108px; --united-logo-size: 24px; }
+    .site-nav{ padding-left: calc(clamp(240px, 28vw, 400px) + var(--pad)); }
+}
+@media (max-width: 720px){
+    :root{ --brand-scale-final: 0.78; --nav-h: 100px; --united-logo-size: 22px; }
+    .site-nav{ padding-left: calc(clamp(190px, 24vw, 260px) + var(--pad)); }
+    .site-nav a{ font-size: clamp(16px, 4.4vw, 18px); }
+    .site-nav .united-btn{ padding:8px 12px; gap:10px; }
+}
+
+/* ====== Reduce Motion ====== */
+@media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important }
+}
