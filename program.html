@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Program — Biserica Vertical</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js">(function(){
+        try{
+            var s = localStorage.getItem('siteThemeVars');
+            if(!s) return;
+            var v = JSON.parse(s), r = document.documentElement.style;
+            for(var k in v){ r.setProperty(k, v[k]); }
+            var acc = localStorage.getItem('siteAccent');
+            if(acc) r.setProperty('--united-yellow', acc);
+        }catch(e){}
+    })();</script>
+</head>
+<body>
+<!-- Brand static (ca în celelalte pagini) -->
+<div class="brand-static">
+    <img class="logo" src="assets/logo.png" alt="Logo" />
+    <div class="tt">
+        <strong>Biserica Vertical</strong>
+        <span>Biserica aici, acum</span>
+    </div>
+</div>
+
+<!-- NAV (linkul Program marcat activ) -->
+<header class="site-nav show">
+    <nav>
+        <ul>
+            <li>
+                <a class="united-btn" href="tineret.html" aria-label="Tineret UNITED">
+                    <img src="assets/united.png" alt="" />
+                    <span>Tineret&nbsp;UNITED</span>
+                </a>
+            </li>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="despre.html">Despre</a></li>
+            <li><a class="active" href="program.html">Program</a></li>
+            <li><a href="locatie.html">Locație</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page program-page">
+    <!-- HERO -->
+    <section class="prog-hero reveal">
+        <h1>Program</h1>
+        <p>Împreună în închinare, Cuvânt și comunitate. Te așteptăm cu drag!</p>
+    </section>
+
+    <!-- GRID cu 3 blocuri -->
+    <section class="prog-grid">
+        <!-- Biserică Duminică -->
+        <article class="prog-card service reveal">
+            <header class="card-head">
+                <div class="time-badge">
+                    <span class="day">Duminică</span>
+                    <span class="time">10:00</span>
+                </div>
+                <h2>Program Biserică</h2>
+            </header>
+
+            <ol class="timeline">
+                <li>
+                    <span class="dot"></span>
+                    <div class="step">
+                        <h3>Comunitate</h3>
+                        <p>Cafea &amp; conversații — ne bucurăm unii de alții.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="dot"></span>
+                    <div class="step">
+                        <h3>Închinare</h3>
+                        <p>Muzică și rugăciune — deschidem inima spre Dumnezeu.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="dot"></span>
+                    <div class="step">
+                        <h3>Răspuns</h3>
+                        <p>Timp de rugăciune comună.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="dot"></span>
+                    <div class="step">
+                        <h3>Mesaj</h3>
+                        <p>Predică din Scriptură, relevantă pentru viața de azi.</p>
+                    </div>
+                </li>
+
+            </ol>
+        </article>
+
+        <!-- Tineret UNITED Luni -->
+        <article class="prog-card youth reveal">
+            <header class="card-head">
+                <div class="time-badge yellow">
+                    <span class="day">Luni</span>
+                    <span class="time">19:00</span>
+                </div>
+                <h2>Tineret <strong>UNITED</strong></h2>
+            </header>
+
+            <ul class="points">
+                <li><span class="spark"></span> Închinare &amp; vibe de comunitate</li>
+                <li><span class="spark"></span> Mesaj relevant pentru tineri</li>
+                <li><span class="spark"></span> Grupuri &amp; hangout</li>
+            </ul>
+
+            <a class="cta ghost" href="tineret.html">Detalii Tineret →</a>
+        </article>
+
+        <!-- Evenimente speciale -->
+        <article class="prog-card events reveal">
+            <header class="card-head">
+                <div class="time-badge">
+                    <span class="day">Special</span>
+                    <span class="time">Evenimente</span>
+                </div>
+                <h2>Evenimente speciale</h2>
+            </header>
+
+            <div class="events-grid">
+                <!-- EXEMPLE (editează după realitate) -->
+                <div class="event-card">
+                    <div class="date-badge">
+                        <span class="d">12</span><span class="m">OCT</span>
+                    </div>
+                    <div class="info">
+                        <h3>Eveniment 1</h3>
+                        <p>Descriere</p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="date-badge">
+                        <span class="d">26</span><span class="m">OCT</span>
+                    </div>
+                    <div class="info">
+                        <h3>Eveniment 2</h3>
+                        <p>Descriere</p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="date-badge">
+                        <span class="d">08</span><span class="m">NOV</span>
+                    </div>
+                    <div class="info">
+                        <h3>Eveniment 3</h3>
+                        <p>Descriere</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+    </footer>
+</main>
+</body>
+</html>

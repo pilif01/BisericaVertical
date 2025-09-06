@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Biserica Vertical</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js">
+        (function(){
+            try{
+                var s = localStorage.getItem('siteThemeVars');
+                if(!s) return;
+                var v = JSON.parse(s), r = document.documentElement.style;
+                for(var k in v){ r.setProperty(k, v[k]); }
+                var acc = localStorage.getItem('siteAccent');
+                if(acc) r.setProperty('--united-yellow', acc);
+            }catch(e){}
+        })();
+    </script>
+</head>
+<body>
+<!-- Brand -->
+<div class="brand-static">
+    <img class="logo" src="assets/logo.png" alt="Logo Biserica Vertical" />
+    <div class="tt">
+        <strong>Biserica Vertical</strong>
+        <span>Biserica aici, acum</span>
+    </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav show">
+    <nav>
+        <ul>
+            <li>
+                <a class="united-btn" href="tineret.html" aria-label="Tineret UNITED">
+                    <img src="assets/united.png" alt="" />
+                    <span>Tineret&nbsp;UNITED</span>
+                </a>
+            </li>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="despre.html">Despre</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="locatie.html">Locație</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page contact-page">
+    <!-- HERO -->
+    <section class="contact-hero reveal">
+        <div class="halo"></div>
+        <h1>Contactează-ne</h1>
+        <p>Scrie-ne un mesaj sau găsește-ne pe rețele. Suntem bucuroși să te cunoaștem!</p>
+    </section>
+
+    <!-- GRID: FORM + INFO -->
+    <section class="contact-grid">
+        <!-- FORM -->
+        <div class="card glass reveal">
+            <h2>Trimite un mesaj</h2>
+            <form id="contactForm">
+                <div class="field">
+                    <label>Nume</label>
+                    <input type="text" name="name" required placeholder="Numele tău" />
+                </div>
+                <div class="field two">
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" required placeholder="exemplu@email.com" />
+                    </div>
+                    <div>
+                        <label>Telefon (opțional)</label>
+                        <input type="tel" name="phone" placeholder="+40 ..." />
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Mesaj</label>
+                    <textarea name="message" rows="5" required placeholder="Cum te putem ajuta?"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Trimite</button>
+                <p id="formMsg" class="form-msg" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <!-- INFO + SOCIAL + DONAȚII -->
+        <div class="card info reveal">
+            <h2>Detalii de contact</h2>
+            <ul class="contact-list">
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2 .6 3.1.6.7 0 1.3.6 1.3 1.3V20c0 .7-.6 1.3-1.3 1.3C10.5 21.3 2.7 13.5 2.7 3.9 2.7 3.2 3.3 2.6 4 2.6h2.9c.7 0 1.3.6 1.3 1.3 0 1.1.2 2.1.6 3.1.1.4 0 .9-.3 1.2l-2.1 2.6z"/></svg>
+                    <a href="tel:+40">+40 …</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:contact@bisericavertical.ro">contact@bisericavertical.ro</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6V9a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v6zM9 7h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm3 2.5A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm4.5-1A.5.5 0 1 0 16 9a.5.5 0 0 0 .5-.5z"/></svg>
+                    <span>@bisericavertical</span>
+                </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="don-title">Donații</h3>
+            <p class="muted">Susține misiunea noastră. Mulțumim!</p>
+
+            <div class="don-grid">
+                <!-- IBAN -->
+                <div class="don-card">
+                    <h4>Transfer bancar</h4>
+                    <!-- înlocuiește cu datele reale -->
+                    <p class="iban">IBAN: <strong id="ibanText">RO00BANK0000000000000000</strong></p>
+                    <button class="btn ghost copy-clip" data-copy="#ibanText">Copiază IBAN</button>
+                </div>
+
+                <!-- Revolut -->
+                <div class="don-card">
+                    <h4>Revolut</h4>
+                    <p class="handle">revolut.me/vertical</p>
+                    <a class="btn ghost" href="https://revolut.me/vertical" target="_blank" rel="noopener">Deschide Revolut</a>
+                </div>
+
+                <!-- PayPal -->
+                <div class="don-card">
+                    <h4>PayPal</h4>
+                    <p class="handle">paypal.me/vertical</p>
+                    <a class="btn ghost" href="https://paypal.me/" target="_blank" rel="noopener">Donează pe PayPal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+</footer>
+</body>
+</html>

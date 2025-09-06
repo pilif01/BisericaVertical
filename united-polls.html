@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Polls — Tineret UNITED</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+<body class="youth">
+
+<!-- NAV -->
+<header class="site-nav show">
+    <!-- Youth branding in top left -->
+    <div class="youth-branding-left">
+        <img src="assets/united.png" alt="Logo Tineret UNITED" class="youth-logo" />
+        <span class="youth-text">Tineret UNITED</span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li>
+                <a class="church-btn" href="index.html" aria-label="Biserica Vertical">
+                    <img src="assets/logo.png" alt="Logo Biserica Vertical" />
+                    <span>Biserica&nbsp;Vertical</span>
+                </a>
+            </li>
+            <li><a href="tineret.html">Acasă</a></li>
+            <li><a href="united-evenimente.html">Evenimente</a></li>
+            <li><a href="united-locatie.html">Locație</a></li>
+            <li><a class="active" href="united-polls.html">Polls</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="content" class="show">
+    <!-- HERO SECTION -->
+    <section class="polls-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🗳️ LIVE POLLING</div>
+                <h1>Votează și <span class="highlight">influențează</span></h1>
+                <p>Vocea ta contează! Participă la sondajele live și ajută-ne să creăm evenimentele pe care le vrei</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVE POLLS -->
+    <section class="active-polls">
+        <div class="container">
+            <div class="section-header">
+                <h2>Polls active</h2>
+                <p>Votează acum și vezi rezultatele în timp real</p>
+            </div>
+            
+            <div class="polls-grid">
+                <!-- Poll 1 - Active -->
+                <div class="poll-card active" data-poll-id="1">
+                    <div class="poll-header">
+                        <div class="poll-status live">🔴 LIVE</div>
+                        <div class="poll-timer" data-end="2025-03-20T23:59:59">
+                            <span class="timer-icon">⏰</span>
+                            <span class="timer-text">5 zile rămase</span>
+                        </div>
+                    </div>
+                    
+                    <div class="poll-content">
+                        <h3>Ce tip de worship preferi pentru următorul eveniment?</h3>
+                        <p>Ajută-ne să pregătim experiența perfectă de worship pentru vinerea viitoare!</p>
+                        
+                        <div class="poll-options" data-poll="worship-style">
+                            <div class="poll-option" data-value="contemporary" onclick="vote('worship-style', 'contemporary')">
+                                <div class="option-content">
+                                    <div class="option-icon">🎸</div>
+                                    <div class="option-text">
+                                        <strong>Contemporary Worship</strong>
+                                        <span>Muzică modernă, trupe live</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-text">45% (23 voturi)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="acoustic" onclick="vote('worship-style', 'acoustic')">
+                                <div class="option-content">
+                                    <div class="option-icon">🎹</div>
+                                    <div class="option-text">
+                                        <strong>Acoustic Worship</strong>
+                                        <span>Stil acustic, intim</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 35%"></div>
+                                    </div>
+                                    <span class="progress-text">35% (18 voturi)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="mixed" onclick="vote('worship-style', 'mixed')">
+                                <div class="option-content">
+                                    <div class="option-icon">🎵</div>
+                                    <div class="option-text">
+                                        <strong>Mix de stiluri</strong>
+                                        <span>Combinație de genuri</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-text">20% (10 voturi)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poll-stats">
+                            <span class="total-votes">51 voturi totale</span>
+                            <span class="poll-participants">👥 32 participanți</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poll 2 - Active -->
+                <div class="poll-card active" data-poll-id="2">
+                    <div class="poll-header">
+                        <div class="poll-status live">🔴 LIVE</div>
+                        <div class="poll-timer" data-end="2025-03-18T23:59:59">
+                            <span class="timer-icon">⏰</span>
+                            <span class="timer-text">3 zile rămase</span>
+                        </div>
+                    </div>
+                    
+                    <div class="poll-content">
+                        <h3>Unde vrei să organizăm următoarea ieșire outdoor?</h3>
+                        <p>Planificăm o ieșire super fun în natură - tu unde ai vrea să mergem?</p>
+                        
+                        <div class="poll-options" data-poll="outdoor-location">
+                            <div class="poll-option" data-value="mountains" onclick="vote('outdoor-location', 'mountains')">
+                                <div class="option-content">
+                                    <div class="option-icon">🏔️</div>
+                                    <div class="option-text">
+                                        <strong>Munți + Hiking</strong>
+                                        <span>Natură, trasee, priveliști</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">60% (18 voturi)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="lake" onclick="vote('outdoor-location', 'lake')">
+                                <div class="option-content">
+                                    <div class="option-icon">🏞️</div>
+                                    <div class="option-text">
+                                        <strong>Lac + Picnic</strong>
+                                        <span>Relaxare, grătare, sporturi nautice</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 27%"></div>
+                                    </div>
+                                    <span class="progress-text">27% (8 voturi)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="park" onclick="vote('outdoor-location', 'park')">
+                                <div class="option-content">
+                                    <div class="option-icon">🌳</div>
+                                    <div class="option-text">
+                                        <strong>Parc Central</strong>
+                                        <span>Accesibil, activități urbane</span>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 13%"></div>
+                                    </div>
+                                    <span class="progress-text">13% (4 voturi)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poll-stats">
+                            <span class="total-votes">30 voturi totale</span>
+                            <span class="poll-participants">👥 25 participanți</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poll 3 - Quick Poll -->
+                <div class="poll-card quick" data-poll-id="3">
+                    <div class="poll-header">
+                        <div class="poll-status quick">⚡ QUICK POLL</div>
+                        <div class="poll-timer" data-end="2025-03-16T18:00:00">
+                            <span class="timer-icon">⏰</span>
+                            <span class="timer-text">6 ore rămase</span>
+                        </div>
+                    </div>
+                    
+                    <div class="poll-content">
+                        <h3>Ce vrei pentru mâncarea de la următorul eveniment?</h3>
+                        
+                        <div class="poll-options quick" data-poll="food-choice">
+                            <div class="poll-option" data-value="pizza" onclick="vote('food-choice', 'pizza')">
+                                <div class="option-content">
+                                    <div class="option-icon">🍕</div>
+                                    <div class="option-text">
+                                        <strong>Pizza</strong>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 50%"></div>
+                                    </div>
+                                    <span class="progress-text">50%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="shawarma" onclick="vote('food-choice', 'shawarma')">
+                                <div class="option-content">
+                                    <div class="option-icon">🌯</div>
+                                    <div class="option-text">
+                                        <strong>Shawarma</strong>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 30%"></div>
+                                    </div>
+                                    <span class="progress-text">30%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="poll-option" data-value="burgers" onclick="vote('food-choice', 'burgers')">
+                                <div class="option-content">
+                                    <div class="option-icon">🍔</div>
+                                    <div class="option-text">
+                                        <strong>Burgers</strong>
+                                    </div>
+                                </div>
+                                <div class="option-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-text">20%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poll-stats">
+                            <span class="total-votes">42 voturi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POLL SUGGESTIONS -->
+    <section class="poll-suggestions">
+        <div class="container">
+            <div class="suggestion-card">
+                <div class="suggestion-header">
+                    <h2>💡 Sugerează un poll</h2>
+                    <p>Ai o idee pentru un sondaj? Lasă-ne să știm!</p>
+                </div>
+                
+                <form class="suggestion-form" id="pollSuggestionForm">
+                    <div class="form-group">
+                        <label for="suggestionTitle">Întrebarea pentru poll</label>
+                        <input type="text" id="suggestionTitle" placeholder="ex: Ce activitate vrei pentru următorul eveniment?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="suggestionOptions">Opțiuni (separate prin virgulă)</label>
+                        <textarea id="suggestionOptions" rows="3" placeholder="ex: Gaming night, Film night, Outdoor activities, Workshop creativ" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="suggestionCategory">Categoria</label>
+                        <select id="suggestionCategory" required>
+                            <option value="">Selectează categoria</option>
+                            <option value="events">Evenimente</option>
+                            <option value="food">Mâncare</option>
+                            <option value="activities">Activități</option>
+                            <option value="worship">Worship</option>
+                            <option value="general">General</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="suggestionName">Numele tău (opțional)</label>
+                        <input type="text" id="suggestionName" placeholder="Pentru a-ți putea mulțumi">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Trimite sugestia</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAST POLLS RESULTS -->
+    <section class="past-polls">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rezultate polls anterioare</h2>
+                <p>Vezi cum au votat ceilalți în trecut</p>
+            </div>
+            
+            <div class="past-polls-grid">
+                <div class="past-poll-card">
+                    <div class="past-poll-header">
+                        <h4>Tema pentru sermon series Martie</h4>
+                        <span class="past-poll-date">Încheiat 10 Mar</span>
+                    </div>
+                    <div class="past-poll-winner">
+                        <div class="winner-icon">🏆</div>
+                        <div class="winner-text">
+                            <strong>Relationships & Dating</strong>
+                            <span>65% din voturi (89 participanți)</span>
+                        </div>
+                    </div>
+                    <div class="past-poll-impact">
+                        <span class="impact-badge">✅ Implementat</span>
+                        <span class="impact-text">Seria a început duminica trecută!</span>
+                    </div>
+                </div>
+
+                <div class="past-poll-card">
+                    <div class="past-poll-header">
+                        <h4>Ora optimă pentru întâlnirile de vineri</h4>
+                        <span class="past-poll-date">Încheiat 1 Mar</span>
+                    </div>
+                    <div class="past-poll-winner">
+                        <div class="winner-icon">🏆</div>
+                        <div class="winner-text">
+                            <strong>19:00</strong>
+                            <span>58% din voturi (76 participanți)</span>
+                        </div>
+                    </div>
+                    <div class="past-poll-impact">
+                        <span class="impact-badge">✅ Implementat</span>
+                        <span class="impact-text">Program actualizat din 5 Martie</span>
+                    </div>
+                </div>
+
+                <div class="past-poll-card">
+                    <div class="past-poll-header">
+                        <h4>Tema pentru Winter Retreat</h4>
+                        <span class="past-poll-date">Încheiat 15 Feb</span>
+                    </div>
+                    <div class="past-poll-winner">
+                        <div class="winner-icon">🏆</div>
+                        <div class="winner-text">
+                            <strong>Identity & Purpose</strong>
+                            <span>72% din voturi (95 participanți)</span>
+                        </div>
+                    </div>
+                    <div class="past-poll-impact">
+                        <span class="impact-badge">✅ Realizat</span>
+                        <span class="impact-text">Retreat-ul a fost un succes!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOTE CONFIRMATION MODAL -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content vote-modal">
+            <div class="modal-header">
+                <h3>✅ Vot înregistrat!</h3>
+                <button class="modal-close" onclick="closeVoteModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="vote-confirmation">
+                    <div class="vote-icon">🗳️</div>
+                    <p>Mulțumim pentru participare! Votul tău a fost înregistrat și rezultatele se actualizează automat.</p>
+                    <div class="vote-details" id="voteDetails">
+                        <!-- Vote details will be populated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="youth-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/united.png" alt="Tineret UNITED" class="footer-logo">
+                    <p>Tineret UNITED - Biserica Vertical</p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4>Quick Links</h4>
+                    <a href="tineret.html">Acasă</a>
+                    <a href="united-evenimente.html">Evenimente</a>
+                    <a href="locatie.html">Locație</a>
+                    <a href="united-polls.html">Polls</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Strada Exemplu, Nr. 123</p>
+                    <p>📞 0723 456 789</p>
+                    <p>✉️ tineret@bisericavertical.ro</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Locația noastră — Tineret UNITED</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+<body class="youth">
+
+<!-- NAV -->
+<header class="site-nav show">
+    <!-- Youth branding in top left -->
+    <div class="youth-branding-left">
+        <img src="assets/united.png" alt="Logo Tineret UNITED" class="youth-logo" />
+        <span class="youth-text">Tineret UNITED</span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li>
+                <a class="church-btn" href="index.html" aria-label="Biserica Vertical">
+                    <img src="assets/logo.png" alt="Logo Biserica Vertical" />
+                    <span>Biserica&nbsp;Vertical</span>
+                </a>
+            </li>
+            <li><a href="tineret.html">Acasă</a></li>
+            <li><a href="united-evenimente.html">evenimente</a></li>
+            <li><a class="active" href="united-locatie.html">Locație</a></li>
+            <li><a href="united-polls.html">Polls</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="content" class="show">
+    <!-- HERO SECTION -->
+    <section class="youth-location-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">📍 UNDE NE ÎNTÂLNIM</div>
+                <h1>Vino să ne <span class="highlight">cunoști</span></h1>
+                <p>Locația noastră este designată special pentru tineri - spațiu modern, atmosferă relaxată și facilități pentru toate activitățile</p>
+                
+                <div class="quick-location-info">
+                    <div class="location-item">
+                        <span class="icon">📍</span>
+                        <span>Strada Exemplu Nr. 123, București</span>
+                    </div>
+                    <div class="location-item">
+                        <span class="icon">🕰️</span>
+                        <span>Vineri 19:00 - 21:30</span>
+                    </div>
+                    <div class="location-item">
+                        <span class="icon">🚌</span>
+                        <span>Transport public disponibil</span>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="openDirections()">🗺️ Cum ajung aici?</button>
+                    <button class="btn-secondary" onclick="callLocation()">📞 Sună acum</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MAP -->
+    <section class="youth-map-section">
+        <div class="container">
+            <div class="map-wrapper">
+                <div class="map-header">
+                    <h2>Locația exactă</h2>
+                    <div class="map-controls">
+                        <button class="map-btn" onclick="toggleMapView('satellite')">🛰️ Satelit</button>
+                        <button class="map-btn active" onclick="toggleMapView('street')">🗺️ Străzi</button>
+                        <button class="map-btn" onclick="centerMap()">📍 Centrează</button>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        id="youthMap"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.123456789!2d26.0123456!3d44.4123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI0JzQ0LjQiTiAyNsKwMDAnNDQuNCJF!5e0!3m2!1sen!2sro!4v1234567890"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <div class="location-pin">
+                            <div class="pin-icon">📍</div>
+                            <div class="pin-label">Tineret UNITED</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION FEATURES -->
+    <section class="location-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ce găsești la noi</h2>
+                <p>Spațiu modern amenajat special pentru tineri</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Sală de worship</h3>
+                    <p>Echipamentele audio-video profesionale pentru worship live și evenimente speciale</p>
+                    <div class="feature-details">
+                        <span>• Scenă mare</span>
+                        <span>• Sistem audio premium</span>
+                        <span>• Iluminat profesional</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☕</div>
+                    <h3>Cafenea & Lounge</h3>
+                    <p>Spațiu relaxat pentru socializare înainte și după evenimente</p>
+                    <div class="feature-details">
+                        <span>• Cafea & snacks</span>
+                        <span>• Zone de conversație</span>
+                        <span>• WiFi gratuit</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gaming Corner</h3>
+                    <p>Zone cu console și jocuri pentru momentele de pauză</p>
+                    <div class="feature-details">
+                        <span>• PlayStation 5</span>
+                        <span>• Nintendo Switch</span>
+                        <span>• Jocuri multiplayer</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Săli pentru grupuri</h3>
+                    <p>Spații private pentru grupurile mici și discuții intime</p>
+                    <div class="feature-details">
+                        <span>• 4 săli separate</span>
+                        <span>• 8-12 persoane/sală</span>
+                        <span>• Atmosferă cozy</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏀</div>
+                    <h3>Spațiu sport</h3>
+                    <p>Mini-teren pentru activități sportive și competiții</p>
+                    <div class="feature-details">
+                        <span>• Fotbal de sală</span>
+                        <span>• Baschet</span>
+                        <span>• Ping pong</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Creative Studio</h3>
+                    <p>Atelier pentru proiecte artistice și workshop-uri creative</p>
+                    <div class="feature-details">
+                        <span>• Materiale de artă</span>
+                        <span>• Instrumente muzicale</span>
+                        <span>• Spațiu pentru practică</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO GET HERE -->
+    <section class="directions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cum ajungi la noi</h2>
+                <p>Multiple opțiuni de transport pentru a fi ușor accesibil</p>
+            </div>
+            
+            <div class="directions-grid">
+                <div class="direction-card">
+                    <div class="direction-icon">🚌</div>
+                    <h3>Transport public</h3>
+                    <div class="direction-details">
+                        <div class="route">
+                            <strong>Autobuz:</strong> Liniile 123, 456, 789
+                        </div>
+                        <div class="route">
+                            <strong>Stația:</strong> "Exemplu Central" (2 min pe jos)
+                        </div>
+                        <div class="route">
+                            <strong>Metro:</strong> Stația "Exemplu" (5 min pe jos)
+                        </div>
+                    </div>
+                    <button class="direction-btn" onclick="openPublicTransport()">Vezi rute</button>
+                </div>
+
+                <div class="direction-card">
+                    <div class="direction-icon">🚗</div>
+                    <h3>Cu mașina</h3>
+                    <div class="direction-details">
+                        <div class="route">
+                            <strong>Din centrul orașului:</strong> 15 min
+                        </div>
+                        <div class="route">
+                            <strong>Parcare:</strong> Gratuită în curte
+                        </div>
+                        <div class="route">
+                            <strong>Locuri:</strong> 50+ locuri disponibile
+                        </div>
+                    </div>
+                    <button class="direction-btn" onclick="openGoogleMaps()">Deschide în Maps</button>
+                </div>
+
+                <div class="direction-card">
+                    <div class="direction-icon">🚶‍♂️</div>
+                    <h3>Pe jos / Bicicletă</h3>
+                    <div class="direction-details">
+                        <div class="route">
+                            <strong>Din campus:</strong> 10 min pe jos
+                        </div>
+                        <div class="route">
+                            <strong>Parcare biciclete:</strong> Disponibilă
+                        </div>
+                        <div class="route">
+                            <strong>Acces:</strong> Zone pietonale sigure
+                        </div>
+                    </div>
+                    <button class="direction-btn" onclick="showWalkingRoute()">Vezi ruta</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIRST TIME VISITOR -->
+    <section class="first-time-section">
+        <div class="container">
+            <div class="first-time-card">
+                <div class="first-time-content">
+                    <h2>Prima dată la noi? 👋</h2>
+                    <p>Nu-ți face griji! Îți vom face o mini-turare și te vom prezenta celorlalți. Atmosfera e super friendly și vei simți imediat că ești acasă.</p>
+                    
+                    <div class="first-time-tips">
+                        <div class="tip">
+                            <span class="tip-icon">⏰</span>
+                            <span>Vino cu 10-15 min mai devreme pentru a te acomoda</span>
+                        </div>
+                        <div class="tip">
+                            <span class="tip-icon">👕</span>
+                            <span>Dress code: Casual & comfortable - fii tu însuți!</span>
+                        </div>
+                        <div class="tip">
+                            <span class="tip-icon">📱</span>
+                            <span>Salvează numărul nostru: 0723 456 789</span>
+                        </div>
+                    </div>
+                    
+                    <div class="first-time-actions">
+                        <button class="btn-primary" onclick="contactFirstTime()">🤝 Anunță-ne că vii</button>
+                        <button class="btn-secondary" onclick="meetTheTeam()">👥 Cunoaște echipa</button>
+                    </div>
+                </div>
+                
+                <div class="first-time-image">
+                    <img src="https://via.placeholder.com/400x300/EAFB2A/000?text=WELCOME" alt="Welcome to UNITED" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="youth-contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📞 Contact direct</h3>
+                    <div class="contact-details">
+                        <a href="tel:+40723456789" class="contact-link">
+                            <span class="contact-icon">📱</span>
+                            <span>0723 456 789</span>
+                        </a>
+                        <a href="mailto:tineret@bisericavertical.ro" class="contact-link">
+                            <span class="contact-icon">✉️</span>
+                            <span>tineret@bisericavertical.ro</span>
+                        </a>
+                        <a href="https://instagram.com/tineret.united" class="contact-link">
+                            <span class="contact-icon">📸</span>
+                            <span>@tineret.united</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>🕐 Program</h3>
+                    <div class="schedule-details">
+                        <div class="schedule-item">
+                            <strong>Vineri:</strong> 19:00 - 21:30
+                        </div>
+                        <div class="schedule-item">
+                            <strong>Duminică:</strong> 10:00 (service general)
+                        </div>
+                        <div class="schedule-item">
+                            <strong>Grupuri mici:</strong> Luni-Joi (diverse ore)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>ℹ️ Info rapidă</h3>
+                    <div class="quick-info">
+                        <div class="info-item">
+                            <span>🎯 Vârsta: 14-30 ani</span>
+                        </div>
+                        <div class="info-item">
+                            <span>🎫 Intrare: Gratuită</span>
+                        </div>
+                        <div class="info-item">
+                            <span>🅿️ Parcare: Gratuită</span>
+                        </div>
+                        <div class="info-item">
+                            <span>♿ Acces: Pentru persoane cu dizabilități</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="youth-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/united.png" alt="Tineret UNITED" class="footer-logo">
+                    <p>Tineret UNITED - Biserica Vertical</p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4>Quick Links</h4>
+                    <a href="tineret.html">Acasă</a>
+                    <a href="united-evenimente.html">Evenimente</a>
+                    <a href="united-locatie.html">Locație</a>
+                    <a href="united-polls.html">Polls</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Strada Exemplu, Nr. 123</p>
+                    <p>📞 0723 456 789</p>
+                    <p>✉️ tineret@bisericavertical.ro</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

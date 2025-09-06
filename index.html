@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Biserica Vertical — Acasă</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js">(function(){
+        try{
+            var s = localStorage.getItem('siteThemeVars');
+            if(!s) return;
+            var v = JSON.parse(s), r = document.documentElement.style;
+            for(var k in v){ r.setProperty(k, v[k]); }
+            var acc = localStorage.getItem('siteAccent');
+            if(acc) r.setProperty('--united-yellow', acc);
+        }catch(e){}
+    })();</script>
+</head>
+<body class="landing">
+<!-- Intro Overlay + Brand (devine header după animație) -->
+<div id="intro" class="intro stage0" aria-hidden="false">
+    <div class="brand" role="banner" aria-label="Biserica Vertical">
+        <img class="logo" src="assets/logo.png" alt="Logo Biserica Vertical" />
+        <div class="text">
+            <h1 class="line line1">Biserica Vertical</h1>
+            <h2 class="line line2">Biserica aici, acum</h2>
+        </div>
+    </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav" aria-hidden="true">
+    <nav>
+        <ul>
+            <li>
+                <a class="united-btn" href="tineret.html" aria-label="Tineret UNITED">
+                    <img src="assets/united.png" alt="Logo United" />
+                    <span>Tineret&nbsp;UNITED</span>
+                </a>
+            </li>
+            <li><a class="active" href="index.html">Acasă</a></li>
+            <li><a href="despre.html">Despre</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="locatie.html">Locație</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- VIDEO BACKGROUND (doar pe landing) -->
+<div class="video-wrap" aria-hidden="true">
+    <video id="bgVideo" class="video-bg" playsinline muted autoplay loop preload="auto" poster="assets/hero.jpg">
+        <source src="assets/hero.webm" type="video/webm" />
+        <source src="assets/hero.mp4"  type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+</div>
+
+<!-- HERO cu mesaj de bun venit -->
+<main id="content" aria-live="polite" aria-hidden="true">
+    <section class="landing-hero">
+        <div class="text-box">
+            <h1>Bine ai venit!</h1>
+            <p>Ne bucurăm că ești aici. Descoperă comunitatea noastră — Biserica aici, acum.</p>
+            <a class="cta" href="program.html">Vezi programul →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+    </footer>
+</main>
+
+<noscript>
+    <style>
+        #intro { display:none !important; }
+        #content, .site-nav { opacity:1 !important; transform:none !important; pointer-events:auto !important; }
+        .site-nav { top:0; }
+    </style>
+</noscript>
+</body>
+</html>

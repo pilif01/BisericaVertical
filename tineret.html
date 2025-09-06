@@ -1,0 +1,435 @@
+<!-- FILE: tineret.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tineret UNITED — Biserica Vertical</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js">
+        (function(){
+            try{
+                var s = localStorage.getItem('siteThemeVars');
+                if(!s) return;
+                var v = JSON.parse(s), r = document.documentElement.style;
+                for(var k in v){ r.setProperty(k, v[k]); }
+                var acc = localStorage.getItem('siteAccent');
+                if(acc) r.setProperty('--united-yellow', acc);
+            }catch(e){}
+        })();
+    </script>
+</head>
+<body class="youth">
+<!-- YOUTH INTRO - Modern, Cinematic -->
+<div id="intro-youth" class="youth-intro" aria-hidden="false">
+    <!-- Particle system background -->
+    <div class="particle-field" aria-hidden="true">
+        <canvas id="youthParticles" class="particles-canvas"></canvas>
+    </div>
+    
+    <!-- Energy rings -->
+    <div class="energy-rings" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="youth-brand" role="banner" aria-label="Tineret UNITED">
+        <!-- Logo with morphing effect -->
+        <div class="logo-container">
+            <img class="logo-base" src="assets/united.png" alt="Logo Tineret UNITED" />
+            <div class="logo-glow"></div>
+            <div class="logo-pulse"></div>
+        </div>
+        
+        <!-- Text with advanced typography -->
+        <div class="text-container">
+            <div class="text-line text-line-1">
+                <span class="word" data-word="tineret">
+                    <span class="char">T</span>
+                    <span class="char">i</span>
+                    <span class="char">n</span>
+                    <span class="char">e</span>
+                    <span class="char">r</span>
+                    <span class="char">e</span>
+                    <span class="char">t</span>
+                </span>
+            </div>
+            <div class="text-line text-line-2">
+                <span class="word word-united" data-word="united">
+                    <span class="char">U</span>
+                    <span class="char">N</span>
+                    <span class="char">I</span>
+                    <span class="char">T</span>
+                    <span class="char">E</span>
+                    <span class="char">D</span>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Energy burst elements -->
+        <div class="energy-burst">
+            <div class="burst-ray" style="--angle: 0deg;"></div>
+            <div class="burst-ray" style="--angle: 45deg;"></div>
+            <div class="burst-ray" style="--angle: 90deg;"></div>
+            <div class="burst-ray" style="--angle: 135deg;"></div>
+            <div class="burst-ray" style="--angle: 180deg;"></div>
+            <div class="burst-ray" style="--angle: 225deg;"></div>
+            <div class="burst-ray" style="--angle: 270deg;"></div>
+            <div class="burst-ray" style="--angle: 315deg;"></div>
+        </div>
+    </div>
+    
+    <!-- Screen flash for final effect -->
+    <div class="screen-flash"></div>
+</div>
+
+<!-- NAV (submeniu UNITED) -->
+<header class="site-nav" aria-hidden="true">
+    <!-- Youth branding in top left -->
+    <div class="youth-branding-left">
+        <img src="assets/united.png" alt="Logo Tineret UNITED" class="youth-logo" />
+        <span class="youth-text">Tineret UNITED</span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li>
+                <a class="church-btn" href="index.html" aria-label="Biserica Vertical">
+                    <img src="assets/logo.png" alt="Logo Biserica Vertical" />
+                    <span>Biserica&nbsp;Vertical</span>
+                </a>
+            </li>
+            <li><a class="active" href="tineret.html">Acasă</a></li>
+            <li><a href="united-evenimente.html">Evenimente</a></li>
+            <li><a href="united-locatie.html">Locație</a></li>
+            <li><a href="united-polls.html">Polls</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="content" aria-live="polite" aria-hidden="true">
+    <!-- HERO cu video și interactive elements -->
+    <section class="youth-hero-new">
+        <div class="hero-video-bg">
+            <video id="youthVideo" playsinline muted autoplay loop preload="auto" poster="assets/youth-hero.jpg">
+                <source src="assets/youth-hero.webm" type="video/webm" />
+                <source src="assets/youth-hero.mp4"  type="video/mp4" />
+            </video>
+            <div class="video-overlay-gradient"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">🔥 LIVE FRIDAYS</div>
+            <h1 class="hero-title">
+                <span class="line">Fii parte din ceva</span>
+                <span class="line highlight">EXTRAORDINAR</span>
+            </h1>
+            <p class="hero-subtitle">Vineri, 19:00 — energie, prietenie și împreună cu Dumnezeu</p>
+            
+            <div class="hero-actions">
+                <a href="#next-event" class="btn-primary pulse">Vino vineri!</a>
+                <a href="united-evenimente.html" class="btn-ghost">Vezi toate evenimentele</a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">200+</span>
+                    <span class="label">tineri activi</span>
+                </div>
+                <div class="stat">
+                    <span class="number">15+</span>
+                    <span class="label">grupuri mici</span>
+                </div>
+                <div class="stat">
+                    <span class="number">52</span>
+                    <span class="label">întâlniri pe an</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating action button pentru quick join -->
+        <div class="floating-action">
+            <button class="fab" onclick="openQuickJoin()">
+                <span class="fab-icon">+</span>
+                <span class="fab-text">Join acum!</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- URMĂTORUL EVENIMENT - Interactive Card -->
+    <section id="next-event" class="next-event-section reveal">
+        <div class="container">
+            <div class="next-event-card interactive-card">
+                <div class="event-header">
+                    <div class="event-badge">
+                        <span class="pulse-dot"></span>
+                        URMĂTORUL EVENIMENT
+                    </div>
+                    <button class="share-btn" onclick="shareEvent()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="event-content">
+                    <h2 class="event-title">NIGHT OF WORSHIP</h2>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="icon">📅</span>
+                            <span>Vineri, 15 Martie 2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="icon">⏰</span>
+                            <span>19:00 - 21:30</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="icon">📍</span>
+                            <span>Sala mare</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="icon">🎫</span>
+                            <span>Intrare liberă</span>
+                        </div>
+                    </div>
+                    
+                    <div class="countdown-wrapper">
+                        <div class="countdown" data-datetime="2025-03-15T19:00:00+03:00" aria-live="polite">
+                            <div class="time-unit">
+                                <span class="num" data-k="d">00</span>
+                                <span class="lbl">zile</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="num" data-k="h">00</span>
+                                <span class="lbl">ore</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="num" data-k="m">00</span>
+                                <span class="lbl">min</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="num" data-k="s">00</span>
+                                <span class="lbl">sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-actions">
+                        <button class="btn-primary" onclick="confirmAttendance()">
+                            <span class="icon">✓</span>
+                            Confirmă că vii
+                        </button>
+                        <a href="locatie.html" class="btn-secondary">
+                            <span class="icon">🗺️</span>
+                            Vezi locația
+                        </a>
+                        <button class="btn-secondary" onclick="addToCalendar()">
+                            <span class="icon">📅</span>
+                            Adaugă în calendar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="event-attendees">
+                    <div class="attendees-list">
+                        <img src="https://via.placeholder.com/32x32/EAFB2A/000?text=A" alt="Participant" class="attendee-avatar">
+                        <img src="https://via.placeholder.com/32x32/EAFB2A/000?text=M" alt="Participant" class="attendee-avatar">
+                        <img src="https://via.placeholder.com/32x32/EAFB2A/000?text=D" alt="Participant" class="attendee-avatar">
+                        <span class="attendees-count">+47 alții vin</span>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE CARDS - Interactive Grid -->
+    <section class="experience-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Descoperă experiența UNITED</h2>
+                <p>Fiecare vineri este o aventură nouă</p>
+            </div>
+            
+            <div class="experience-grid">
+                <div class="exp-card card-worship" onclick="navigateToPage('united-evenimente.html')">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🎵</div>
+                        <h3>Worship Live</h3>
+                        <p>Laudă contemporană cu trupa noastră</p>
+                        <div class="card-stats">
+                            <span>🎤 Band live</span>
+                            <span>🎸 Atmosphere</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">Descoperă evenimentele →</div>
+                </div>
+                
+                <div class="exp-card card-community" onclick="navigateToPage('united-grupuri.html')">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon">👥</div>
+                        <h3>Grupuri Mici</h3>
+                        <p>Prietenii reale în grupuri de 8-12 persoane</p>
+                        <div class="card-stats">
+                            <span>15+ grupuri</span>
+                            <span>💬 Conexiuni reale</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">Găsește grupul tău →</div>
+                </div>
+                
+                <div class="exp-card card-media" onclick="navigateToPage('united-media.html')">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon">📹</div>
+                        <h3>Content & Media</h3>
+                        <p>Highlights, stories și memories</p>
+                        <div class="card-stats">
+                            <span>📸 Photo & Video</span>
+                            <span>🎬 Memories</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">Vezi galeria →</div>
+                </div>
+                
+                <div class="exp-card card-serve" onclick="navigateToPage('united-voluntariat.html')">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🚀</div>
+                        <h3>Get Involved</h3>
+                        <p>Folosește-ți talentele în echipă</p>
+                        <div class="card-stats">
+                            <span>🎵 Worship team</span>
+                            <span>🎥 Media team</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">Implică-te →</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SLIDER -->
+    <section class="testimonials-section reveal">
+        <div class="container">
+            <h2>Ce spun tinerii despre UNITED</h2>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <p>"UNITED mi-a schimbat perspectiva asupra comunității. Am găsit aici prieteni adevărați și am crescut spiritual."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/48x48/EAFB2A/000?text=A" alt="Ana" class="author-avatar">
+                            <div>
+                                <strong>Ana, 19 ani</strong>
+                                <span>Membră din 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Atmosfera de la UNITED este incredibilă. Fiecare vineri vin cu bucurie pentru că știu că voi trăi ceva special."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/48x48/EAFB2A/000?text=M" alt="Mihai" class="author-avatar">
+                            <div>
+                                <strong>Mihai, 22 ani</strong>
+                                <span>Worship team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Prin grupul mic am învățat să îmi exprim credința și am dezvoltat relații care m-au ajutat să cresc."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/48x48/EAFB2A/000?text=D" alt="Daria" class="author-avatar">
+                            <div>
+                                <strong>Daria, 20 ani</strong>
+                                <span>Small group leader</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev" onclick="prevTestimonial()">‹</button>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentTestimonial(1)"></span>
+                    <span class="dot" onclick="currentTestimonial(2)"></span>
+                    <span class="dot" onclick="currentTestimonial(3)"></span>
+                </div>
+                <button class="slider-btn next" onclick="nextTestimonial()">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK JOIN MODAL -->
+    <div id="quickJoinModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join UNITED acum!</h3>
+                <button class="modal-close" onclick="closeQuickJoin()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Completează datele pentru a te înregistra la următorul eveniment:</p>
+                <form id="quickJoinForm">
+                    <div class="form-group">
+                        <label for="quickName">Numele tău</label>
+                        <input type="text" id="quickName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quickPhone">Telefon</label>
+                        <input type="tel" id="quickPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quickAge">Vârsta</label>
+                        <select id="quickAge" required>
+                            <option value="">Selectează</option>
+                            <option value="14-16">14-16 ani</option>
+                            <option value="17-19">17-19 ani</option>
+                            <option value="20-25">20-25 ani</option>
+                            <option value="26-30">26-30 ani</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="groupInterest">
+                        <label for="groupInterest">Sunt interesat(ă) de un grup mic</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Confirmă participarea</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="youth-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/united.png" alt="Tineret UNITED" class="footer-logo">
+                    <p>Tineret UNITED - Biserica Vertical</p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4>Quick Links</h4>
+                    <a href="united-evenimente.html">Evenimente</a>
+                    <a href="united-grupuri.html">Grupuri</a>
+                    <a href="united-media.html">Media</a>
+                    <a href="united-voluntariat.html">Voluntariat</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Strada Exemplu, Nr. 123</p>
+                    <p>📞 0723 456 789</p>
+                    <p>✉️ tineret@bisericavertical.ro</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+        <small>&copy; <span id="year"></span> Biserica Vertical. Toate drepturile rezervate.</small>
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
